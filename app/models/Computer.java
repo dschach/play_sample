@@ -1,11 +1,12 @@
 package models;
 
 import java.util.*;
-
 import javax.persistence.*;
 
+import play.db.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
+
 import play.db.jpa.*;
 
 /**
@@ -60,6 +61,7 @@ public class Computer {
         } else {
             this.company = Company.findById(company.id);
         }
+        this.id = id;
         JPA.em().persist(this);
     }
     
@@ -85,8 +87,7 @@ public class Computer {
             .createQuery("select count(c) from Computer c where lower(c.name) like ?")
             .setParameter(1, "%" + filter.toLowerCase() + "%")
             .getSingleResult();
-        @SuppressWarnings("unchecked")
-				List<Computer> data = JPA.em()
+        List<Computer> data = JPA.em()
             .createQuery("from Computer c where lower(c.name) like ? order by c." + sortBy + " " + order)
             .setParameter(1, "%" + filter.toLowerCase() + "%")
             .setFirstResult((page - 1) * pageSize)
