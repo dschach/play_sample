@@ -1,3 +1,5 @@
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 This is a classic CRUD application, backed by a JDBC database. It demonstrates:
 
 - Accessing a JDBC database, using JPA.

@@ -1,0 +1,6 @@
+{
+  "name": "Play Sample",
+  "description": "A barebones Play app created during a Heroku workshop",
+  "repository": "https://github.com/dschach/play_sample",
+  "keywords": ["play", "java", "sample"]
+}
